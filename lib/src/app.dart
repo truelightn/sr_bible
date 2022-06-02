@@ -17,7 +17,9 @@ class App extends GetView<AppController> {
         body: IndexedStack(
           index: controller.currentIndex.value,
           children: [
-            Navigator(onGenerateRoute: ((settings) {
+            Navigator(
+                key: controller.biblePageNavigationKey,
+                onGenerateRoute: ((settings) {
               return MaterialPageRoute(
                 builder: (context) => BiblePage(),
               );

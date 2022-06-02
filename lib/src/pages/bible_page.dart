@@ -53,7 +53,9 @@ class BiblePage extends GetView<BibleController> {
                               title: Text("${index + 1}장"),
                               onTap: () {
                                 controller.updateSelectedChapter(index);
-                                Get.to(() => BibleReadPage());
+                                Navigator.push(context, MaterialPageRoute(builder: ((context) => BibleReadPage())));
+
+                                // Get.to(() => BibleReadPage());
                               },
                               // onLongPress: () {
                               //   controller.updateSelectedVerse(index);
