@@ -10,11 +10,6 @@ class BibleRepo {
     for (var element in jsonData) {
       bibleList.add(Bible.fromJson(element));
     }
-    // jsonData
-    for (var bible in bibleList) {
-      print("get bibile test:: ${bible.name}/${bible.abbrev}/${bible.chapters?.length}");
-    }
-
     return bibleList;
   }
 }
