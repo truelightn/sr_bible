@@ -23,6 +23,7 @@ class BiblePage extends GetView<BibleController> {
             children: [
               SizedBox(
                   height: MediaQuery.of(context).size.height,
+                  // width: controller.selectedChapter.value == -1 ? MediaQuery.of(context).size.width * 0.3 : MediaQuery.of(context).size.width * 0.2,
                   width: MediaQuery.of(context).size.width * 0.3,
                   child: ListView.builder(
                     itemCount: BibleTitleList.length,
@@ -30,7 +31,8 @@ class BiblePage extends GetView<BibleController> {
                       return Column(
                         children: [
                           ListTile(
-                            title: Text("${BibleCharList[index]} / ${BibleTitleList[index]}"),
+                            // title: controller.selectedChapter.value == -1 ? Text("${BibleTitleList[index]}") : Text("${BibleCharList[index]}"),
+                            title: Text("${BibleTitleList[index]}"),
                             onTap: () {
                               controller.updateSelectedTitleIndex(index);
                             },
