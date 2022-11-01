@@ -14,9 +14,8 @@ class WebPage extends GetView<WebController> {
   @override
   Widget build(BuildContext context) {
     return const WebView(
-      initialUrl:  'http://www.sungrak.or.kr/sr/',
+      initialUrl: 'https://cba.sungrak.or.kr:9000/new',
       javascriptMode: JavascriptMode.unrestricted,
-      // initialUrl: 'https://flutter.dev',
     );
   }
 }

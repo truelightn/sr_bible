@@ -31,8 +31,7 @@ class BiblePage extends GetView<BibleController> {
                       return Column(
                         children: [
                           ListTile(
-                            // title: controller.selectedChapter.value == -1 ? Text("${BibleTitleList[index]}") : Text("${BibleCharList[index]}"),
-                            title: Text("${BibleTitleList[index]}"),
+                            title: Text(BibleTitleList[index]),
                             onTap: () {
                               controller.updateSelectedTitleIndex(index);
                             },
@@ -55,13 +54,11 @@ class BiblePage extends GetView<BibleController> {
                               title: Text("${index + 1}장"),
                               onTap: () {
                                 controller.updateSelectedChapter(index);
-                                Navigator.push(context, MaterialPageRoute(builder: ((context) => BibleReadPage())));
-
-                                // Get.to(() => BibleReadPage());
                               },
-                              // onLongPress: () {
-                              //   controller.updateSelectedVerse(index);
-                              // },
+                              onLongPress: () {
+                                controller.updateSelectedVerse(0);
+                                Get.to(() => BibleReadPage());
+                              },
                             ),
                             const Divider()
                           ],
