@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "38607481539",
+    "firebase_url": "https://sungrak-bible.firebaseio.com",
+    "project_id": "sungrak-bible",
+    "storage_bucket": "sungrak-bible.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38607481539:android:716686274f9075875cd076",
+        "android_client_info": {
+          "package_name": "kr.or.sungrak.cba.sr_bible"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "38607481539-mb5c4rp0m7fa73rc2a5q1fv2sv6mg45l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRQr6D6QMJNkLqbE5PuiIRUiRzs-wAKu0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "38607481539-mb5c4rp0m7fa73rc2a5q1fv2sv6mg45l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
