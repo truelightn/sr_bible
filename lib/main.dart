@@ -16,13 +16,12 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Sungrak Bible',
       theme: ThemeData(
-        primarySwatch: Colors.blueGrey,
+        primaryColor: const Color(0xff8979F5),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       initialBinding: InitBinding(),

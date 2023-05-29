@@ -17,6 +17,11 @@ class BibleReadPage extends GetView<BibleController> {
   Widget build(BuildContext context) {
     return Obx(() => Scaffold(
           appBar: AppBar(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            iconTheme: const IconThemeData(
+              color: Colors.black, // 아이콘 색상을 검은색으로 설정
+            ),
             title: Text(
               "${BibleTitleList[controller.selectedTitleIndex.value]} ${controller.getCurrentChapter()}장",
               style: const TextStyle(color: Colors.black),

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sr_bible/src/pages/bible_page.dart';
+import 'package:sr_bible/src/pages/community_page.dart';
+import 'package:sr_bible/src/pages/home_page.dart';
 import 'package:sr_bible/src/pages/more_page.dart';
-import 'package:sr_bible/src/pages/video_page.dart';
 
 import 'controller/app_controller.dart';
-import 'pages/web_page.dart';
 
 class App extends GetView<AppController> {
   const App({Key? key}) : super(key: key);
@@ -17,6 +17,7 @@ class App extends GetView<AppController> {
         body: IndexedStack(
           index: controller.currentIndex.value,
           children: [
+            HomePage(),
             Navigator(
                 key: controller.biblePageNavigationKey,
                 onGenerateRoute: ((settings) {
@@ -24,12 +25,13 @@ class App extends GetView<AppController> {
                 builder: (context) => BiblePage(),
               );
             })),
-            Navigator(onGenerateRoute: ((settings) {
-              return MaterialPageRoute(
-                builder: (context) => WebPage(),
-              );
-            })),
-            VideoPage(),
+            // Navigator(onGenerateRoute: ((settings) {
+            //   return MaterialPageRoute(
+            //     builder: (context) => WebPage(),
+            //   );
+            // })),
+            // VideoPage(),
+            CommunityPage(),
             MorePage()
           ],
         ),
@@ -42,16 +44,20 @@ class App extends GetView<AppController> {
             onTap: controller.changePageIndex,
             items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                label: "홈",
+              ),
+              BottomNavigationBarItem(
                 icon: Icon(Icons.book),
                 label: '성경',
               ),
+              // BottomNavigationBarItem(
+              //   icon: Icon(Icons.web),
+              //   label: "WEB",
+              // ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.web),
-                label: "WEB",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.ondemand_video),
-                label: '영상',
+                icon: Icon(Icons.message),
+                label: '커뮤니티',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.more_horiz),

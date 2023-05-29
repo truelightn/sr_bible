@@ -3,7 +3,6 @@
 //     final bible = bibleFromJson(jsonString);
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'dart:convert';
 
 part 'bible.freezed.dart';
 part 'bible.g.dart';
