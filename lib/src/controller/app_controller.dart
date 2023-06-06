@@ -11,14 +11,6 @@ class AppController extends GetxService {
 
   void changePageIndex(int index) {
     currentIndex(index);
-    // if (RouteName.values[index] == RouteName.home) {
-    //   // _showBottomSheet();
-    // } else {
-    //   currentIndex(index);
-    // }
   }
 
-  // void _showBottomSheet() {
-  //   Get.bottomSheet(YoutubeBottomSheet());
-  // }
 }

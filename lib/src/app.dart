@@ -18,18 +18,7 @@ class App extends GetView<AppController> {
           index: controller.currentIndex.value,
           children: [
             HomePage(),
-            Navigator(
-                key: controller.biblePageNavigationKey,
-                onGenerateRoute: ((settings) {
-              return MaterialPageRoute(
-                builder: (context) => BiblePage(),
-              );
-            })),
-            // Navigator(onGenerateRoute: ((settings) {
-            //   return MaterialPageRoute(
-            //     builder: (context) => WebPage(),
-            //   );
-            // })),
+            BiblePage(),
             // VideoPage(),
             CommunityPage(),
             MorePage()

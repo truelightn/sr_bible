@@ -1,13 +1,17 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:get/get.dart';
+
+import '../controller/auth_controller.dart';
 
 class HomePage extends StatelessWidget {
   static int _current = 0;
   final CarouselController _controller = CarouselController();
   final selectedPageIndex = 0.obs;
   static List<String> images = [
-    "https://cdn.pixabay.com/photo/2014/04/14/20/11/pink-324175_1280.jpg",
+    "https://firebasestorage.googleapis.com/v0/b/cba-retreat.appspot.com/o/KakaoTalk_20230530_114602970.jpg?alt=media&token=71fc0a68-6bb6-4bdb-8e73-4ef6adee87c1&_gl=1*ma3i6t*_ga*MzI3ODQyNDc4LjE2ODU0MTQ4OTA.*_ga_CW55HF8NVT*MTY4NTQxNDg4OS4xLjEuMTY4NTQxNTAxNC4wLjAuMA..",
     "https://cdn.pixabay.com/photo/2014/02/27/16/10/flowers-276014_1280.jpg",
     "https://cdn.pixabay.com/photo/2012/03/01/00/55/flowers-19830_1280.jpg",
     "https://cdn.pixabay.com/photo/2015/06/19/20/13/sunset-815270_1280.jpg",
@@ -70,8 +74,8 @@ class HomePage extends StatelessWidget {
                   _controller.animateToPage(index);
                 },
                 child: Container(
-                  width: 8.0,
-                  height: 8.0,
+                  width: 5.0,
+                  height: 5.0,
                   margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
@@ -96,12 +100,7 @@ class HomePage extends StatelessWidget {
   Widget menuWidget(BuildContext context, IconData icon, String text) {
     return InkWell(
       onTap: () => {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('준비중입니다.'),
-            duration: Duration(seconds: 1),
-          ),
-        )
+        Get.snackbar('알림', '준비중입니다.', duration: Duration(seconds: 2), snackPosition: SnackPosition.BOTTOM)
       },
       child: Container(
         padding: const EdgeInsets.all(16.0),
