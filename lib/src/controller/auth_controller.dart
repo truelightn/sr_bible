@@ -1,14 +1,21 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../data/models/my_info.dart';
+import '../data/repositories/main_repo.dart';
 
 class AuthController extends GetxController {
   static AuthController get to => Get.find();
   late Rx<User?> _user;
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  final MainRepositories _repo = MainRepositories();
 
   RxString loginEmail = "".obs;
   RxString loginPassword = "".obs;
+
+  Rx<MyInfo> _myInfo = const MyInfo().obs;
 
   @override
   void onReady() {
@@ -40,10 +47,12 @@ class AuthController extends GetxController {
   }
 
   Future<bool> logIn() async {
-    print("login $loginEmail / $loginPassword");
+    if (kDebugMode) {
+      print("login $loginEmail / $loginPassword");
+    }
     try {
       final credential = await _firebaseAuth.signInWithEmailAndPassword(email: loginEmail.value.trim(), password: loginPassword.value.trim());
-      // credential.user.uid
+      loadMyInfo(credential.user!.uid);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
       } else if (e.code == 'wrong-password') {}
@@ -52,6 +61,14 @@ class AuthController extends GetxController {
     }
 
     return true;
+  }
+
+  void loadMyInfo(String uid) async {
+    MyInfo response = await _repo.getMyInfo(uid);
+    _myInfo(response);
+    if (kDebugMode) {
+      print(_myInfo);
+    }
   }
 
   void signOut() async {

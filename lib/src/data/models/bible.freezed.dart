@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'bible.dart';
 
@@ -32,18 +32,22 @@ mixin _$Bible {
 /// @nodoc
 abstract class $BibleCopyWith<$Res> {
   factory $BibleCopyWith(Bible value, $Res Function(Bible) then) =
-      _$BibleCopyWithImpl<$Res>;
+      _$BibleCopyWithImpl<$Res, Bible>;
+  @useResult
   $Res call({String? abbrev, List<List<String>>? chapters, String? name});
 }
 
 /// @nodoc
-class _$BibleCopyWithImpl<$Res> implements $BibleCopyWith<$Res> {
+class _$BibleCopyWithImpl<$Res, $Val extends Bible>
+    implements $BibleCopyWith<$Res> {
   _$BibleCopyWithImpl(this._value, this._then);
 
-  final Bible _value;
   // ignore: unused_field
-  final $Res Function(Bible) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? abbrev = freezed,
@@ -51,19 +55,19 @@ class _$BibleCopyWithImpl<$Res> implements $BibleCopyWith<$Res> {
     Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      abbrev: abbrev == freezed
+      abbrev: freezed == abbrev
           ? _value.abbrev
           : abbrev // ignore: cast_nullable_to_non_nullable
               as String?,
-      chapters: chapters == freezed
+      chapters: freezed == chapters
           ? _value.chapters
           : chapters // ignore: cast_nullable_to_non_nullable
               as List<List<String>>?,
-      name: name == freezed
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -72,18 +76,17 @@ abstract class _$$_BibleCopyWith<$Res> implements $BibleCopyWith<$Res> {
   factory _$$_BibleCopyWith(_$_Bible value, $Res Function(_$_Bible) then) =
       __$$_BibleCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? abbrev, List<List<String>>? chapters, String? name});
 }
 
 /// @nodoc
-class __$$_BibleCopyWithImpl<$Res> extends _$BibleCopyWithImpl<$Res>
+class __$$_BibleCopyWithImpl<$Res> extends _$BibleCopyWithImpl<$Res, _$_Bible>
     implements _$$_BibleCopyWith<$Res> {
   __$$_BibleCopyWithImpl(_$_Bible _value, $Res Function(_$_Bible) _then)
-      : super(_value, (v) => _then(v as _$_Bible));
+      : super(_value, _then);
 
-  @override
-  _$_Bible get _value => super._value as _$_Bible;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? abbrev = freezed,
@@ -91,15 +94,15 @@ class __$$_BibleCopyWithImpl<$Res> extends _$BibleCopyWithImpl<$Res>
     Object? name = freezed,
   }) {
     return _then(_$_Bible(
-      abbrev: abbrev == freezed
+      abbrev: freezed == abbrev
           ? _value.abbrev
           : abbrev // ignore: cast_nullable_to_non_nullable
               as String?,
-      chapters: chapters == freezed
+      chapters: freezed == chapters
           ? _value._chapters
           : chapters // ignore: cast_nullable_to_non_nullable
               as List<List<String>>?,
-      name: name == freezed
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -123,6 +126,7 @@ class _$_Bible implements _Bible {
   List<List<String>>? get chapters {
     final value = _chapters;
     if (value == null) return null;
+    if (_chapters is EqualUnmodifiableListView) return _chapters;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -140,27 +144,27 @@ class _$_Bible implements _Bible {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Bible &&
-            const DeepCollectionEquality().equals(other.abbrev, abbrev) &&
+            (identical(other.abbrev, abbrev) || other.abbrev == abbrev) &&
             const DeepCollectionEquality().equals(other._chapters, _chapters) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            (identical(other.name, name) || other.name == name));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(abbrev),
-      const DeepCollectionEquality().hash(_chapters),
-      const DeepCollectionEquality().hash(name));
+  int get hashCode => Object.hash(runtimeType, abbrev,
+      const DeepCollectionEquality().hash(_chapters), name);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_BibleCopyWith<_$_Bible> get copyWith =>
       __$$_BibleCopyWithImpl<_$_Bible>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BibleToJson(this);
+    return _$$_BibleToJson(
+      this,
+    );
   }
 }
 
@@ -173,11 +177,11 @@ abstract class _Bible implements Bible {
   factory _Bible.fromJson(Map<String, dynamic> json) = _$_Bible.fromJson;
 
   @override
-  String? get abbrev => throw _privateConstructorUsedError;
+  String? get abbrev;
   @override
-  List<List<String>>? get chapters => throw _privateConstructorUsedError;
+  List<List<String>>? get chapters;
   @override
-  String? get name => throw _privateConstructorUsedError;
+  String? get name;
   @override
   @JsonKey(ignore: true)
   _$$_BibleCopyWith<_$_Bible> get copyWith =>

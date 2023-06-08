@@ -99,8 +99,8 @@ class HomePage extends StatelessWidget {
 
   Widget menuWidget(BuildContext context, IconData icon, String text) {
     return InkWell(
-      onTap: () => {
-        Get.snackbar('알림', '준비중입니다.', duration: Duration(seconds: 2), snackPosition: SnackPosition.BOTTOM)
+      onTap: () {
+        Get.snackbar('알림', '준비중입니다.', duration: Duration(seconds: 2), snackPosition: SnackPosition.BOTTOM);
       },
       child: Container(
         padding: const EdgeInsets.all(16.0),
