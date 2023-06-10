@@ -15,7 +15,7 @@ class AuthController extends GetxController {
   RxString loginEmail = "".obs;
   RxString loginPassword = "".obs;
 
-  Rx<MyInfo> _myInfo = const MyInfo().obs;
+  Rx<MyInfo> myInfo = MyInfo().obs;
 
   @override
   void onReady() {
@@ -28,13 +28,17 @@ class AuthController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+      _moveToPage(user);
+    });
   }
 
   _moveToPage(User? user) {
     if (user == null) {
-      Get.toNamed('/login');
+      Get.offAllNamed('/login');
     } else {
-      Get.toNamed('/');
+      loadMyInfo(user.uid);
+      Get.offAllNamed('/');
     }
   }
 
@@ -52,7 +56,6 @@ class AuthController extends GetxController {
     }
     try {
       final credential = await _firebaseAuth.signInWithEmailAndPassword(email: loginEmail.value.trim(), password: loginPassword.value.trim());
-      loadMyInfo(credential.user!.uid);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
       } else if (e.code == 'wrong-password') {}
@@ -65,9 +68,9 @@ class AuthController extends GetxController {
 
   void loadMyInfo(String uid) async {
     MyInfo response = await _repo.getMyInfo(uid);
-    _myInfo(response);
+    myInfo(response);
     if (kDebugMode) {
-      print(_myInfo);
+      print(myInfo);
     }
   }
 

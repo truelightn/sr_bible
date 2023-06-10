@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:get/get.dart';
@@ -100,6 +102,7 @@ class HomePage extends StatelessWidget {
   Widget menuWidget(BuildContext context, IconData icon, String text) {
     return InkWell(
       onTap: () {
+        FirebaseAuth.instance.signOut();
         Get.snackbar('알림', '준비중입니다.', duration: Duration(seconds: 2), snackPosition: SnackPosition.BOTTOM);
       },
       child: Container(
